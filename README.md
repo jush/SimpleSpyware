@@ -10,3 +10,7 @@ This repo contains a demonstration spyware app. The app shows how Androids foreg
 
 ### Build
 The ExampleA folder contains a Android Studio 3.2 project and the project can be build with gradle.
+
+
+### Attributions 
+App Material Icons: Attribution: Google Inc. - [Licencse](https://creativecommons.org/licenses/by/4.0/deed.en)
