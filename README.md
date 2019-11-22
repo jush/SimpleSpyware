@@ -34,3 +34,5 @@ Some notes about the features:
 
 ### Attributions 
 App Material Icons: Attribution: Google Inc. - [Licencse](https://creativecommons.org/licenses/by/4.0/deed.en)
+
+- Thanks to the Google Android Security Team for resolving this issue on future Android versions.
