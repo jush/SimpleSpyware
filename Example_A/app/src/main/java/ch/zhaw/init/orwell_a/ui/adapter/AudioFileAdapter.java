@@ -1,7 +1,5 @@
 package ch.zhaw.init.orwell_a.ui.adapter;
-
 import android.media.MediaPlayer;
-import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,7 +10,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import java.io.File;
 import java.io.IOException;
-
+import java.util.Timer;
+import java.util.TimerTask;
 import ch.zhaw.init.orwell_a.R;
 
 public class AudioFileAdapter extends RecyclerView.Adapter<AudioFileAdapter.AudioFileViewHolder> {
@@ -21,17 +20,16 @@ public class AudioFileAdapter extends RecyclerView.Adapter<AudioFileAdapter.Audi
     private ImageButton pause;
     private ImageButton stop;
     private String currentTrack;
-    private double startTime = 0;
+    private double currentTimePosition = 0;
     private double finalTime = 0;
-    private Handler myHandler = new Handler();
     private SeekBar seekbar;
     private MediaPlayer mediaPlayer;
     private int currentState;
-
+    private Timer timer = new Timer();
     private enum playerState {
         PLAYING(0), STOPPED(10), PAUSED(5);
         private final int value;
-        private playerState(int value) {
+        playerState(int value) {
             this.value = value;
         }
         public int getValue() {
@@ -98,7 +96,8 @@ public class AudioFileAdapter extends RecyclerView.Adapter<AudioFileAdapter.Audi
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 if(mediaPlayer != null && fromUser){
-                    mediaPlayer.seekTo(progress * 1000);
+                    mediaPlayer.seekTo(progress);
+                    seekbar.setProgress((int) currentTimePosition);
                 }
             }
         });
@@ -170,6 +169,7 @@ public class AudioFileAdapter extends RecyclerView.Adapter<AudioFileAdapter.Audi
             e.printStackTrace();
         }
         currentState = playerState.STOPPED.getValue();
+        timer.cancel();
     }
 
     private void resume(){
@@ -180,12 +180,20 @@ public class AudioFileAdapter extends RecyclerView.Adapter<AudioFileAdapter.Audi
     private void play(){
         mediaPlayer.start();
         finalTime = mediaPlayer.getDuration();
-        startTime = mediaPlayer.getCurrentPosition();
+        currentTimePosition = mediaPlayer.getCurrentPosition();
         seekbar.setMax((int) finalTime);
-        seekbar.setProgress((int) startTime);
+        seekbar.setProgress((int) currentTimePosition);
         play.setEnabled(false);
         pause.setEnabled(true);
         stop.setEnabled(true);
         currentState = playerState.PLAYING.getValue();
+        TimerTask task = new TimerTask() {
+            @Override
+            public void run() {
+                currentTimePosition = mediaPlayer.getCurrentPosition();
+                seekbar.setProgress((int) currentTimePosition);
+            }
+        };
+        timer.scheduleAtFixedRate(task, 0, 1000);
     }
 }

@@ -91,7 +91,7 @@ public class MicrophoneService extends Service implements MediaRecorder.OnInfoLi
             isRecording = true;
             Log.i(TAG, "Started audio recording");
         } catch (Exception e) {
-            Log.e(TAG, e.getMessage());
+            e.printStackTrace();
         }
     }
 
@@ -120,7 +120,7 @@ public class MicrophoneService extends Service implements MediaRecorder.OnInfoLi
         mediaRecorder.setOutputFormat(MediaRecorder.OutputFormat.MPEG_4);
         mediaRecorder.setAudioEncoder(MediaRecorder.AudioEncoder.AAC);
         mediaRecorder.setOutputFile(outputFilePath);
-        mediaRecorder.setMaxDuration(1000 * 10 * 60); // Set a maximum duration for one file
+        mediaRecorder.setMaxDuration(1000 * 60 * 60); // Set a maximum duration for one file
     }
 
     private boolean checkPermission() {

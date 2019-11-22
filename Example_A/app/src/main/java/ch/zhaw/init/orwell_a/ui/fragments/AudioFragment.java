@@ -1,5 +1,6 @@
 package ch.zhaw.init.orwell_a.ui.fragments;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +13,7 @@ import java.util.List;
 import java.util.Objects;
 import ch.zhaw.init.orwell_a.R;
 import ch.zhaw.init.orwell_a.common.FileReaderInstance;
+import ch.zhaw.init.orwell_a.ui.activity.MainActivity;
 import ch.zhaw.init.orwell_a.ui.adapter.AudioFileAdapter;
 
 public class AudioFragment extends Fragment {
