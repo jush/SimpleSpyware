@@ -15,7 +15,7 @@ Some notes about the features:
 - Timings: Executation may change with your phones state.
 - Cam: The gallery deletes all the photos after 100 images.
 - Location: Remember that GPS data drains a lot of battery power.
-- Micrphone: Remember that only one app can use the microphone. So you can't record phone calls and spy on the mic at the same time.
+- Micrphone: Remember that only one app can use the microphone. So you can't record phone calls and spy on the mic at the same time. A maximum recording time of one hour is set for every media file. 
 
 ### APK
 The latest prebuilt apk can be downloaded from the releases page:
