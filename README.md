@@ -11,12 +11,20 @@ This repo contains a demonstration spyware app. The app shows how Androids foreg
 ### Build
 The ExampleA folder contains a Android Studio 3.2 project and the project can be build with gradle.
 
+```
+./gradlew build
+```
+
+You can install and debug via Android Studio or over adb with:
+```
+adb install ch.zhaw.init.orwell_a
+```
+
 ### Some Notes
 
 - Cam: The gallery deletes all the photos after 100 images.
 - Location: Remember that GPS data uses a lot of battery power.
 - Micrphone: Remeber that only one application can use the micrphone at one, so you use your phone during testing.
-
 
 
 ### Attributions 
