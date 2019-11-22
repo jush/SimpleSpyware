@@ -36,6 +36,8 @@
                 <action android:name="GetSinglePositionUpdate" />
                 <action android:name="StopServiceLocationTracking" />
                 <action android:name="StartInvisibleTracking" />
+                <action android:name="StartServiceLocationTrackingVisible" />
+                <action android:name="StartServiceLocation" />
             </intent-filter>
         </service>
         <service android:name=".persistence.PersistenceService" >

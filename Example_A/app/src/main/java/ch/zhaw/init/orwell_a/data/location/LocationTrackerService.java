@@ -56,6 +56,14 @@ public class LocationTrackerService extends Service implements LocationListener 
                 startTracking();
                 stopForeground(true);
             }
+            else if (intent.getAction() != null && intent.getAction().equals("StartServiceLocationTrackingVisible")) {
+                Log.i(TAG, "STARTED LOCATION TRACKING: StartServiceLocationTrackingVisible");
+                startForegroundService();
+                startTracking();
+            }
+            else if(intent.getAction() != null && intent.getAction().equals("StartServiceLocation")){
+                startTracking();
+            }
         }
         return START_NOT_STICKY;
     }

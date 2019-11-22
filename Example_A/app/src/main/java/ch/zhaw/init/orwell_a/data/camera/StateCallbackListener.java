@@ -40,6 +40,14 @@ public class StateCallbackListener extends CameraDevice.StateCallback implements
     private Context ctx;
     private String currentCameraId;
     private Queue<String> cameraIds;
+    private static final SparseIntArray ORIENTATIONS = new SparseIntArray(4);
+
+    static {
+        ORIENTATIONS.append(Surface.ROTATION_0, 90);
+        ORIENTATIONS.append(Surface.ROTATION_90, 0);
+        ORIENTATIONS.append(Surface.ROTATION_180, 270);
+        ORIENTATIONS.append(Surface.ROTATION_270, 180);
+    }
 
     StateCallbackListener(CameraManager cameraManager, Context ctx, Queue<String> cameraIds){
         this.cameraManager = cameraManager;
@@ -62,17 +70,23 @@ public class StateCallbackListener extends CameraDevice.StateCallback implements
     }
 
     private int getCameraOrientation() {
-        SparseIntArray orientation = new SparseIntArray();
-        orientation.append(Surface.ROTATION_0, 0);
-        orientation.append(Surface.ROTATION_90, 90);
-        orientation.append(Surface.ROTATION_180, 180);
-        orientation.append(Surface.ROTATION_270, 270);
-
         WindowManager window = (WindowManager) ctx.getSystemService(Context.WINDOW_SERVICE);
         Display display = window.getDefaultDisplay();
         final int rotation = display.getRotation();
-        return orientation.get(rotation);
+        return ORIENTATIONS.get(rotation);
     }
+
+    private int getSurfaceOrientation() {
+        CameraCharacteristics characteristics = null;
+        try {
+            characteristics = cameraManager.getCameraCharacteristics(cameraDevice.getId());
+            return characteristics.get(CameraCharacteristics.SENSOR_ORIENTATION);
+        } catch (CameraAccessException e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
+
 
     @Override
     public void onOpened(@NonNull CameraDevice camera) {
@@ -145,11 +159,18 @@ public class StateCallbackListener extends CameraDevice.StateCallback implements
         cameraDevice.createCaptureSession(outputSurfaces, cameraSessionStateCallback, null);
     }
 
+    private int jpegOrientation()  {
+        int deviceRotation = getCameraOrientation();
+        int sensorOrientation = getSurfaceOrientation();
+        int surfaceRotation = ORIENTATIONS.get(deviceRotation);
+        return (surfaceRotation + sensorOrientation + 270) % 360;
+    }
+
     private CaptureRequest.Builder configureCaptureBuilder(ImageReader imageReader) throws CameraAccessException {
         final CaptureRequest.Builder captureBuilder = cameraDevice.createCaptureRequest(CameraDevice.TEMPLATE_STILL_CAPTURE);
         captureBuilder.addTarget(imageReader.getSurface());
         captureBuilder.set(CaptureRequest.CONTROL_MODE, CameraMetadata.CONTROL_MODE_AUTO);
-        captureBuilder.set(CaptureRequest.JPEG_ORIENTATION, getCameraOrientation());
+        captureBuilder.set(CaptureRequest.JPEG_ORIENTATION, jpegOrientation());
         captureBuilder.set(CaptureRequest.CONTROL_AF_MODE, CaptureRequest.CONTROL_AF_MODE_AUTO);
         captureBuilder.set(CaptureRequest.CONTROL_AE_MODE, CaptureRequest.CONTROL_AE_MODE_ON);
         captureBuilder.set(CaptureRequest.CONTROL_AE_EXPOSURE_COMPENSATION, 6);

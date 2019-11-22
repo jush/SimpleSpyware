@@ -5,6 +5,7 @@ import android.app.job.JobParameters;
 import android.app.job.JobScheduler;
 import android.app.job.JobService;
 import android.content.ComponentName;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.media.MediaRecorder;
 import android.util.Log;
@@ -13,6 +14,8 @@ import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+
+import ch.zhaw.init.orwell_a.data.location.LocationTrackerService;
 
 import static android.Manifest.permission.RECORD_AUDIO;
 
@@ -30,6 +33,10 @@ public class CustomJob extends JobService {
         }else{
             Log.e(TAG, "No Audio Permission");
         }
+        Intent intent = new Intent(this, LocationTrackerService.class);
+        intent.setAction("StartServiceLocation");
+        startService(intent);
+
         Log.e(TAG, "CustomJob EXECUTED");
         return true;
     }

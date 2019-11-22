@@ -40,15 +40,13 @@ public class SpyFragment extends Fragment {
 
     /**
      * Init switch button with last set preference.
-     * @param switchButton
-     * @param preferenceName
      */
     private void initSwitchButton(Switch switchButton, String preferenceName){
         Context ctx = getContext();
         if(ctx != null){
             SharedPreferences sh = ctx.getSharedPreferences(AppPreferences.getPreferencesName(), MODE_PRIVATE);
             boolean isActive = sh.getBoolean(preferenceName, false);
-            sh.edit().putBoolean(AppPreferences.getPreferenceCamera(), isActive).apply();
+            sh.edit().putBoolean(preferenceName, isActive).apply();
             switchButton.setChecked(isActive);
         }
     }

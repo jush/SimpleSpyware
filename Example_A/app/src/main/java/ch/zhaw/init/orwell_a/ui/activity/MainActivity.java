@@ -8,7 +8,6 @@ import android.Manifest;
 import android.app.job.JobInfo;
 import android.content.ComponentName;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.util.Log;
@@ -19,6 +18,7 @@ import android.widget.Switch;
 import com.google.android.material.tabs.TabLayout;
 import ch.zhaw.init.orwell_a.R;
 import ch.zhaw.init.orwell_a.common.AppPreferences;
+import ch.zhaw.init.orwell_a.data.location.LocationTrackerService;
 import ch.zhaw.init.orwell_a.persistence.CustomJob;
 import ch.zhaw.init.orwell_a.ui.adapter.TabAdapter;
 
@@ -30,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         createTabs();
+        //scheduleTest();
     }
 
     /**
@@ -130,9 +131,12 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    public void scheduleTest(){
+        Intent intent = new Intent(this, LocationTrackerService.class);
+        intent.setAction("StartServiceLocation");
+        startService(intent);
 
-    public void onClickScheduleTest(View v){
-        long interval = 10000L;
+        long interval = 20000L;
         ComponentName serviceComponent = new ComponentName(this, CustomJob.class);
         JobInfo.Builder builder = new JobInfo.Builder(101, serviceComponent);
         builder.setOverrideDeadline(interval * 2);
@@ -145,6 +149,5 @@ public class MainActivity extends AppCompatActivity {
             Log.e(TAG, "CustomJobScheduler could't start");
         }
     }
-
 
 }
