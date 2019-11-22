@@ -11,6 +11,13 @@ This repo contains a demonstration spyware app. The app shows how Androids foreg
 ### Build
 The ExampleA folder contains a Android Studio 3.2 project and the project can be build with gradle.
 
+### Some Notes
+
+- Cam: The gallery deletes all the photos after 100 images.
+- Location: Remember that GPS data uses a lot of battery power.
+- Micrphone: Remeber that only one application can use the micrphone at one, so you use your phone during testing.
+
+
 
 ### Attributions 
 App Material Icons: Attribution: Google Inc. - [Licencse](https://creativecommons.org/licenses/by/4.0/deed.en)
