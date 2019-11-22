@@ -9,7 +9,7 @@ This repo contains a demonstration spyware app. The app shows how Androids foreg
 
 
 ### Build
-The ExampleA folder contains a Android Studio 3.2 project and the project can be build with gradle.
+The ExampleA folder contains a Android Studio 3.2 project. The project can be imported in Android Studio or directly build with gradle:
 
 ```
 ./gradlew build
