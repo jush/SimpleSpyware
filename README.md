@@ -5,6 +5,9 @@ This repo contains a demonstration spyware app. The app shows how Androids foreg
 * [Code](https://github.com/7homasSutter/SimpleSpyware/releases)
 * [Whitepaper](https://github.com/7homasSutter/SimpleSpyware/releases)
 * [Presentation](https://github.com/7homasSutter/SimpleSpyware/releases)
+
+### APK
+The latest prebuilt apk can be downloaded from the releases page:
 * [APKs](https://github.com/7homasSutter/SimpleSpyware/releases)
 
 
@@ -19,12 +22,14 @@ You can install and debug via Android Studio or over adb with:
 ```
 adb install ch.zhaw.init.orwell_a
 ```
-
 ### Some Notes
+Please do not use or redistribute parts of this code for criminal activity. Spying on others is a crime! This code is only intended for educational purposes and should only be used on your own devices for testing.
 
+Some notes about the features:
+- Timings: Executation may change with your phones state.
 - Cam: The gallery deletes all the photos after 100 images.
-- Location: Remember that GPS data uses a lot of battery power.
-- Micrphone: Remeber that only one application can use the micrphone at one, so you use your phone during testing.
+- Location: Remember that GPS data drains a lot of battery power.
+- Micrphone: Remeber that only one application can use the microphone. So you can't record phone calls.
 
 
 ### Attributions 
