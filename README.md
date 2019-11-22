@@ -29,7 +29,7 @@ Some notes about the features:
 - Timings: Executation may change with your phones state.
 - Cam: The gallery deletes all the photos after 100 images.
 - Location: Remember that GPS data drains a lot of battery power.
-- Micrphone: Remeber that only one application can use the microphone. So you can't record phone calls.
+- Micrphone: Remember that only one app can use the microphone. So you can't record phone calls and spy on the mic at the same time.
 
 
 ### Attributions 
