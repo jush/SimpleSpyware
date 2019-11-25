@@ -3,8 +3,6 @@
 This repo contains a demonstration spyware app. The app shows how Androids foreground services can be used to collect user data. More technical information can be found within the presentation slides and the whitepaper.
 
 * [Code](https://github.com/7homasSutter/SimpleSpyware/releases)
-* [Whitepaper](https://github.com/7homasSutter/SimpleSpyware/releases)
-* [Presentation](https://github.com/7homasSutter/SimpleSpyware/releases)
 
 ### General Notes
 Please do not use or redistribute parts of this code for criminal activity. Spying on others is a crime! This code is only intended for educational purposes and should only be used on your own devices for testing.
