@@ -1,6 +1,6 @@
 # SimpleSpyware - Black HatEurope 2019 - Demo App 
 
-This repo contains a demonstration spyware app. The app shows how Androids foreground services can be used to collect user data. More technical information can be found within the presentation slides and the whitepaper.
+This repo contains a demonstration spyware app. The app shows how Androids foreground services can be used to collect user data. More technical information can be found within the presentation slides.
 
 * [Code](https://github.com/7homasSutter/SimpleSpyware/releases)
 
