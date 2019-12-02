@@ -14,7 +14,7 @@ Some notes about the features:
 - Cam: The gallery deletes all the photos after 100 images.
 - Location: Remember that GPS data drains a lot of battery power.
 - Micrphone: Remember that only one app can use the microphone. So you can't record phone calls and spy on the mic at the same time. A maximum recording time of one hour is set for every media file. 
-- Visibility: Some permission monitoring software may detect the location tracking.
+- Visibility: Some permission usage monitors may detect the app.
 
 ### APK
 The latest prebuilt apk can be downloaded from the releases page:
