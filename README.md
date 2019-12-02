@@ -2,7 +2,9 @@
 
 This repo contains a demonstration spyware app. The app shows how Androids foreground services can be used to collect user data. More technical information can be found within the presentation slides.
 
-* [Code](https://github.com/7homasSutter/SimpleSpyware/releases)
+### APK
+The latest prebuilt apk can be downloaded from the releases page:
+* [APKs](https://github.com/7homasSutter/SimpleSpyware/releases)
 
 ### General Notes
 Please do not use or redistribute parts of this code for criminal activity. Spying on others is a crime! This code is only intended for educational purposes and should only be used on your own devices for testing.
@@ -15,10 +17,6 @@ Some notes about the features:
 - Location: Remember that GPS data drains a lot of battery power.
 - Micrphone: Remember that only one app can use the microphone. So you can't record phone calls and spy on the mic at the same time. A maximum recording time of one hour is set for every media file. 
 - Visibility: Some permission usage monitors may detect the app.
-
-### APK
-The latest prebuilt apk can be downloaded from the releases page:
-* [APKs](https://github.com/7homasSutter/SimpleSpyware/releases)
 
 ### Build
 The ExampleA folder contains a Android Studio 3.2 project. The project can be imported in Android Studio or directly build with gradle:
