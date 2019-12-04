@@ -16,7 +16,7 @@ Some notes about the features:
 - Cam: The gallery deletes all the photos after 100 images.
 - Location: Remember that GPS data drains a lot of battery power.
 - Micrphone: Remember that only one app can use the microphone. So you can't record phone calls and spy on the mic at the same time. A maximum recording time of one hour is set for every media file. 
-- Visibility: Some permission usage monitors may detect the app.
+- Visibility: Some permission usage monitors may detect the app. If you overuse the scheduling, you may get a battery power notification after some hours.
 
 ### Build
 The ExampleA folder contains a Android Studio 3.2 project. The project can be imported in Android Studio or directly build with gradle:
