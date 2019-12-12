@@ -18,6 +18,10 @@ Some notes about the features:
 - Micrphone: Remember that only one app can use the microphone. So you can't record phone calls and spy on the mic at the same time. A maximum recording time of one hour is set for every media file. 
 - Visibility: Some permission usage monitors may detect the app. If you overuse the scheduling, you may get a battery power notification after some hours.
 
+### Patch - CVE-2019-2219 
+
+Patch for this kind of attack were released in [december 2019](https://android.googlesource.com/platform/frameworks/base/+/055976434b5d0ec5f6a3746124f4e81aecf8a426). Foreground Services will now have to show a notification for at least 5 seconds.
+
 ### Build
 The ExampleA folder contains a Android Studio 3.2 project. The project can be imported in Android Studio or directly build with gradle:
 
