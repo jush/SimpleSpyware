@@ -20,7 +20,7 @@ Some notes about the features:
 
 ### Patch - CVE-2019-2219 
 
-Patch for this kind of attack were released in [december 2019](https://android.googlesource.com/platform/frameworks/base/+/055976434b5d0ec5f6a3746124f4e81aecf8a426). Foreground Services will now have to show a notification for at least 5 seconds.
+Patch for this attack was released in [december 2019](https://android.googlesource.com/platform/frameworks/base/+/055976434b5d0ec5f6a3746124f4e81aecf8a426). Foreground Services will now have to show a notification for at least 5 seconds.
 
 ### Build
 The ExampleA folder contains a Android Studio 3.2 project. The project can be imported in Android Studio or directly build with gradle:
